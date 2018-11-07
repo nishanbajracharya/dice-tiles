@@ -12,7 +12,7 @@ class Board {
     for (let row = 0; row < this.rowSize; row++) {
       this.grids.push([]);
       for (let col = 0; col < this.colSize; col++) {
-        let grid = new Grid({ row, col, rowSize: this.rowSize });
+        let grid = new Grid({ row, col, colSize: this.colSize });
 
         this.grids[row].push(grid);
       }
