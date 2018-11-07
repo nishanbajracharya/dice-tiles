@@ -10,10 +10,25 @@ class Mouse {
     this.elHeight = 0;
 
     this.element = document.createElement('div');
-    this.setClassName('');
+    this.setClassName('player-1');
 
     elements.root.appendChild(this.element);
+    elements.root.addEventListener('click', () => this.mouseClickHandler());
     elements.root.addEventListener('mousemove', e => this.mouseMoveHandler(e));
+  }
+
+  mouseClickHandler() {
+    const columns = getRange(this.elLeft, this.elRight);
+    const rows = getRange(this.elTop, this.elBottom);
+
+    const next = this.game.board.occupyGrids({
+      rows,
+      columns,
+      player: this.game.player,
+      elData: { left: this.elLeft, top: this.elTop, width: this.elWidth, height: this.elHeight },
+    });
+
+    if (next) this.game.nextTurn();
   }
 
   mouseMoveHandler(e) {

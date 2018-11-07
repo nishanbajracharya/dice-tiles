@@ -22,7 +22,7 @@ injectStyles();
 
 class Game {
   constructor() {
-    this.player = 'player-1';
+    this.player = '';
 
     this.row = ROWS;
     this.col = COLUMNS
@@ -34,6 +34,25 @@ class Game {
     this.mouse = new Mouse({
       game: this
     });
+
+    this.setPlayer('player-1');
+
+    this.die.onRoll(() => {
+      this.mouse.setElemPosition();
+      this.mouse.setElemDimensions();
+
+      this.setPlayer(`player-${this.player === 'player-1' ? 2 : 1}`)
+    });
+  }
+
+  setPlayer(player) {
+    this.player = player;
+
+    this.mouse.setClassName(player);
+  }
+
+  nextTurn() {
+    this.die.roll();
   }
 
   render() {

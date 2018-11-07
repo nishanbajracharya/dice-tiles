@@ -1,5 +1,5 @@
-const ROWS = 15;
-const COLUMNS = 20;
+const ROWS = 20;
+const COLUMNS = 30;
 
 const GRID_CELL_SIZE = 40;
 
