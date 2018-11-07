@@ -3,6 +3,7 @@
   height: 36px;
   color: #d3d3d3;
   font-size: 12px;
+  overflow: hidden;
   margin-left: -1px;
   margin-bottom: -1px;
   box-sizing: border-box;
