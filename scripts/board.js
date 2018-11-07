@@ -1,5 +1,5 @@
 class Board {
-  constructor({row, col, game}) {
+  constructor({row, col}) {
     this.rowSize = row;
     this.colSize = col;
 
@@ -12,7 +12,7 @@ class Board {
     for (let row = 0; row < this.rowSize; row++) {
       this.grids.push([]);
       for (let col = 0; col < this.colSize; col++) {
-        let grid = new Grid({ row, col });
+        let grid = new Grid({ row, col, rowSize: this.rowSize });
 
         this.grids[row].push(grid);
       }
@@ -113,7 +113,7 @@ class Board {
       occupiedEl.style.width = (elData.width * (GRID_CELL_SIZE - 1) + 1) + 'px';
       occupiedEl.style.height = (elData.height * (GRID_CELL_SIZE - 1) + 1) + 'px';
 
-      elements.root.appendChild(occupiedEl);
+      elements.occupied.appendChild(occupiedEl);
 
       currentGrids.forEach(grid => grid.occupy(player));
     }

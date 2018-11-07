@@ -13,6 +13,9 @@ const injectStyles = () => {
   #app {
     width: ${(GRID_CELL_SIZE - 1) * COLUMNS}px;
   }
+  #blue, #red {
+    width: calc(50vw - ${(GRID_CELL_SIZE - 1) * COLUMNS / 2}px)
+  }
   `;
 
   document.body.appendChild(style);
@@ -41,7 +44,9 @@ class Game {
       this.mouse.setElemPosition();
       this.mouse.setElemDimensions();
 
-      this.setPlayer(`player-${this.player === 'player-1' ? 2 : 1}`)
+      this.setPlayer(`player-${this.player === 'player-1' ? 2 : 1}`);
+
+      this.calculateScore(this.board.grids);
     });
   }
 
@@ -53,6 +58,19 @@ class Game {
 
   nextTurn() {
     this.die.roll();
+  }
+
+  calculateScore(grids) {
+    let blueScore = 0;
+    let redScore = 0;
+
+    grids.flat().forEach(grid => {
+      if (grid.occupied === 'player-1') blueScore++;
+      if (grid.occupied === 'player-2') redScore++;
+    });
+
+    elements.blue.innerHTML = blueScore;
+    elements.red.innerHTML = redScore;
   }
 
   render() {

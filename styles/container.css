@@ -1,3 +1,43 @@
+#score {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  font-family: sans-serif;
+}
+
+#score #blue, #score #red {
+  top: 50px;
+  position: absolute;
+  text-align: center;
+}
+
+#score #blue {
+  left: 0;
+}
+
+#score #red {
+  right: 0;
+}
+
+#score .title {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#score #blue .title {
+  color: #49c;
+}
+
+#score #red .title {
+  color: #a22;
+}
+
+#score .score {
+  color: #424242;
+  font-size: 80px;
+}
+
 #app {
   margin: 0 auto;
   position: relative;
