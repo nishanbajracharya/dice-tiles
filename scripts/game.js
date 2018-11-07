@@ -22,9 +22,18 @@ injectStyles();
 
 class Game {
   constructor() {
-    this.board = new Board({ row: ROWS, col: COLUMNS });
+    this.player = 'player-1';
+
+    this.row = ROWS;
+    this.col = COLUMNS
+
+    this.board = new Board({ row: this.row, col: this.col });
 
     this.die = new Die({ count: 2 });
+
+    this.mouse = new Mouse({
+      game: this
+    });
   }
 
   render() {
