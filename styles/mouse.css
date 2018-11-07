@@ -1,0 +1,15 @@
+.mouse-div {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.mouse-div.player-1 {
+  border: 1px solid #49c;
+  background: rgba(90, 120, 250, 0.5);
+}
+
+.mouse-div.player-2 {
+  border: 1px solid #a22;
+  background: rgba(250, 60, 60, 0.5);
+}

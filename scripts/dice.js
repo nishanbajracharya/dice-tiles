@@ -27,7 +27,7 @@ class Dice {
 }
 
 class Die {
-  constructor(count = 1) {
+  constructor({ count = 1 }) {
     this.die = [];
     this.values = [];
     this.rollFunctions = [];
@@ -54,7 +54,7 @@ class Die {
       this.values.push(dice.roll());
     });
 
-    this.rollFunctions.forEach(fn => fn());
+    this.rollFunctions.forEach(fn => fn && fn());
 
     return this.values;
   }
@@ -65,7 +65,7 @@ class Die {
 
   render() {
     this.die.forEach(dice => {
-      elements.root.appendChild(dice.element);
-    })
+      elements.dice.appendChild(dice.element);
+    });
   }
 }
