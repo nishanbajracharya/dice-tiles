@@ -1,0 +1,37 @@
+.dice {
+  z-index: 2;
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  background-size: 600% 100%;
+  background-image: url(../images/dice.png);
+  transition: transform .5s, top .5s, left .5s;
+}
+
+.dice-1 {
+  background-position: 0 0;
+}
+
+.dice-2 {
+  background-position: -100% 0;
+}
+
+.dice-3 {
+  background-position: -200% 0;
+}
+
+.dice-4 {
+  background-position: -300% 0;
+}
+
+.dice-5 {
+  background-position: -400% 0;
+}
+
+.dice-6 {
+  background-position: -500% 0;
+}
+
+.dice:hover {
+  opacity: .25;
+}
